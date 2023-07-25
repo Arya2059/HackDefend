@@ -12,9 +12,10 @@ const HomePage = () => {
   const { filterDispatch } = useFilterContext();
 
   const categoryFilterHandler = ({ categoryName }) => {
+    filterDispatch({ type: TYPE.CLEAR_FILTERS });
     filterDispatch({
       type: TYPE.ADD_CATEGORY_FILTER,
-      payload: categoryName
+      payload: categoryName,
     });
   };
 
