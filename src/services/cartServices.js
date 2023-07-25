@@ -13,12 +13,12 @@ export const addToCart = async (
     const response = await axios.post(
       "/api/user/cart",
       {
-        product
+        product,
       },
       {
         headers: {
-          authorization: token
-        }
+          authorization: token,
+        },
       }
     );
     setBtnDisabled(false);
@@ -42,8 +42,8 @@ export const removeFromCart = async (
     setBtnDisabled(true);
     const response = await axios.delete(`/api/user/cart/${productId}`, {
       headers: {
-        authorization: token
-      }
+        authorization: token,
+      },
     });
     setBtnDisabled(false);
 
@@ -70,20 +70,20 @@ export const updateQtyInCart = async (
       `/api/user/cart/${productId}`,
       {
         action: {
-          type: actionType === "INCREMENT" ? "increment" : "decrement"
-        }
+          type: actionType === "INCREMENT" ? "increment" : "decrement",
+        },
       },
       {
         headers: {
-          authorization: token
-        }
+          authorization: token,
+        },
       }
     );
     setBtnDisabled(false);
 
     dataDispatch({
       type: TYPE.UPDATE_QTY_IN_CART,
-      payload: response.data.cart
+      payload: response.data.cart,
     });
   } catch (error) {
     console.log("Error in updateQtyInCart", error);

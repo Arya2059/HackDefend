@@ -10,7 +10,7 @@ export const loadCategories = async (setLoader, dispatch) => {
 
     dispatch({
       type: TYPE.LOAD_CATEGORIES,
-      payload: res.data.categories
+      payload: res.data.categories,
     });
   } catch (error) {
     console.log(error);
@@ -25,7 +25,7 @@ export const loadProducts = async (setLoader, dispatch) => {
 
     dispatch({
       type: TYPE.LOAD_PRODUCTS,
-      payload: res.data.products
+      payload: res.data.products,
     });
   } catch (error) {
     console.log(error);
