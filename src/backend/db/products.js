@@ -12,9 +12,11 @@ export const products = [
     name: "Linux Fundamentals",
     author: "Cry0l1t3, Knightmare",
     price: 219,
+    originalPrice: 699,
     isBestSeller: true,
     category: "General",
-    rating: 4.6
+    rating: 4.6,
+    categoryTitle: "General",
   },
   {
     _id: uuid(),
@@ -22,9 +24,11 @@ export const products = [
     name: "Introduction to Networking",
     author: "Cry0l1t3, ippsec-3",
     price: 250,
+    originalPrice: 799,
     isBestSeller: false,
     category: "General",
-    rating: 4
+    rating: 4,
+    categoryTitle: "General",
   },
 
   {
@@ -33,9 +37,11 @@ export const products = [
     name: "Kerberos Attacks",
     author: "pixis",
     price: 400,
+    originalPrice: 950,
     isBestSeller: false,
     category: "Offensive",
-    rating: 2
+    rating: 2,
+    categoryTitle: "Offensive",
   },
   {
     _id: uuid(),
@@ -43,9 +49,11 @@ export const products = [
     name: "Introduction to Bash Scripting",
     author: "007JamesBond",
     price: 390,
+    originalPrice: 599,
     isBestSeller: true,
     category: "General",
-    rating: 4.8
+    rating: 4.8,
+    categoryTitle: "General",
   },
 
   {
@@ -54,9 +62,11 @@ export const products = [
     name: "Security Monitoring and SIEM Fundamentals",
     author: "Slavi Parpulev",
     price: 600,
+    originalPrice: 1099,
     isBestSeller: false,
     category: "Defensive",
-    rating: 4
+    rating: 4,
+    categoryTitle: "Defensive",
   },
   {
     _id: uuid(),
@@ -64,19 +74,23 @@ export const products = [
     name: "Intro to Threat hunting & Hunting with Elastic",
     author: "GodFather",
     price: 350,
+    originalPrice: 899,
     isBestSeller: false,
     category: "Defensive",
-    rating: 2
+    rating: 2,
+    categoryTitle: "Defensive",
   },
   {
     _id: uuid(),
     img: "https://academy.hackthebox.com/storage/modules/216/logo.png",
     name: "Windows event logs & Finding evil",
-    author: "Robin Sharma",
+    author: "RobSH",
     price: 119,
+    originalPrice: 250,
     isBestSeller: false,
     category: "Defensive",
-    rating: 3
+    rating: 3,
+    categoryTitle: "Defensive",
   },
   {
     _id: uuid(),
@@ -84,9 +98,11 @@ export const products = [
     name: "Cracking Passwords with HASHCAT",
     author: "mrb3n, ippsec-3, MinatoTW",
     price: 157,
+    originalPrice: 459,
     isBestSeller: false,
     category: "Offensive",
-    rating: 3
+    rating: 3,
+    categoryTitle: "Offensive",
   },
   {
     _id: uuid(),
@@ -94,9 +110,11 @@ export const products = [
     name: "Stack Based BufferOverflows on Linux x86 ",
     author: "$$ns",
     price: 163,
+    originalPrice: 399,
     isBestSeller: false,
     category: "Offensive",
-    rating: 2.5
+    rating: 2.5,
+    categoryTitle: "Offensive",
   },
   {
     _id: uuid(),
@@ -104,9 +122,11 @@ export const products = [
     name: "Windows Attacks and Defence",
     author: "Johnylooper",
     price: 699,
+    originalPrice: 1299,
     isBestSeller: false,
     category: "Defensive",
-    rating: 4
+    rating: 4,
+    categoryTitle: "Defensive",
   },
   {
     _id: uuid(),
@@ -114,9 +134,11 @@ export const products = [
     name: "Intro to Assembly Language",
     author: "21y4d",
     price: 399,
+    originalPrice: 750,
     isBestSeller: false,
     category: "General",
-    rating: 3.5
+    rating: 3.5,
+    categoryTitle: "General",
   },
   {
     _id: uuid(),
@@ -124,9 +146,11 @@ export const products = [
     name: "DNS Enumeration using Python",
     author: "Cry0l1t3",
     price: 243,
+    originalPrice: 699,
     isBestSeller: false,
     category: "General",
-    rating: 1
+    rating: 1,
+    categoryTitle: "General",
   },
   {
     _id: uuid(),
@@ -134,9 +158,11 @@ export const products = [
     name: "Javascript Deobfuscation",
     author: "M0jis",
     price: 799,
+    originalPrice: 999,
     isBestSeller: false,
     category: "Defensive",
-    rating: 4
+    rating: 4,
+    categoryTitle: "Defensive",
   },
   {
     _id: uuid(),
@@ -144,9 +170,11 @@ export const products = [
     name: "Active Directory LDAP",
     author: "W0rm32",
     price: 999,
+    originalPrice: 1299,
     isBestSeller: true,
     category: "Offensive",
-    rating: 5
+    rating: 5,
+    categoryTitle: "Offensive",
   },
   {
     _id: uuid(),
@@ -154,8 +182,10 @@ export const products = [
     name: "Footprinting",
     author: "L1nkesh",
     price: 800,
+    originalPrice: 999,
     isBestSeller: false,
     category: "Offensive",
-    rating: 4.8
-  }
+    rating: 4.8,
+    categoryTitle: "Offensive",
+  },
 ];
