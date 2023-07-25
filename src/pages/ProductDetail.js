@@ -71,14 +71,13 @@ const ProductDetailPage = () => {
     originalPrice,
     rating,
     pages,
-    delivery,
   } = product;
   const discount = getDiscountPercent(originalPrice, price);
   return (
     <main className="product-detail-page">
       <div className="product-detail-card">
         <div className="product-img">
-          <img src={img} alt="book" />
+          <img src={img} alt="course" />
         </div>
         <div className="product-detail">
           <div className="product-detail__info">
@@ -131,14 +130,6 @@ const ProductDetailPage = () => {
                   <b>Pages: </b>
                 </p>
                 <p>{pages}</p>
-              </div>
-              <div className="product-detail__info-main__row">
-                <p>
-                  <b>Delivery: </b>
-                </p>
-                <p>
-                  {delivery} {delivery > 1 ? "days" : "day"}
-                </p>
               </div>
             </div>
           </div>
