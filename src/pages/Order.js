@@ -11,7 +11,7 @@ const OrderPage = () => {
     }, 5000);
 
     return () => clearTimeout(id);
-  }, []);
+  }, [navigate]);
 
   return (
     <main className="order-page">
