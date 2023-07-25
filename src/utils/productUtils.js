@@ -8,3 +8,5 @@ const isProductInWishlist = (wishlist, productId) => {
 
 const getDiscountPercent = (originalPrice, price) =>
   ((originalPrice - price) / originalPrice) * 100;
+
+export { isProductInCart, isProductInWishlist, getDiscountPercent };
