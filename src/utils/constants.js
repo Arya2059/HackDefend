@@ -32,4 +32,4 @@ export const TOAST_CONFIG = {
   draggable: true,
   progress: undefined,
   theme: "light",
-};
+  
