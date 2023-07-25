@@ -1,36 +1,18 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useAuthContext } from "../context/authContext";
 import { useDataContext } from "../context/dataContext";
-import { TYPE } from "../utils/constants";
-import { removeFromCart } from "../services/cartServices";
-import { removeFromWishlist } from "../services/wishlistServices";
+import { useFilterContext } from "../context/filterContext";
+import { logoutUser } from "../services/authServices";
 
 const UserProfilePage = () => {
-  const { user, token, setToken } = useAuthContext();
-  const { cart, wishlist, dataDispatch } = useDataContext();
-  const navigate = useNavigate();
+  const { user, setToken, setUser } = useAuthContext();
+  const { dataDispatch, setLoader } = useDataContext();
+  const { filterDispatch } = useFilterContext();
 
   const logoutHandler = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-    setToken(null);
-
-    for (const item of cart) {
-      removeFromCart(dataDispatch, item._id, token);
-    }
-
-    for (const item of wishlist) {
-      removeFromWishlist(dataDispatch, item._id, token);
-    }
-
-    dataDispatch({ type: TYPE.CLEAR_CART });
-    dataDispatch({ type: TYPE.CLEAR_WISHLIST });
-
-    navigate("/login");
+    logoutUser(setToken, setUser, dataDispatch, filterDispatch, setLoader);
   };
-  console.log(user);
-  const activeUser = JSON.parse(user);
 
   return (
     <main className="user-profile-page">
@@ -38,11 +20,18 @@ const UserProfilePage = () => {
         <h2>Account</h2>
         <div className="user-profile-card">
           <div className="user-profile-card__details">
-            <h3>User Details</h3>
-            <p>
-              Name: {activeUser.firstName} {activeUser.lastName}
-            </p>
-            <p>Email: {activeUser.email} </p>
+            <div className="user-profile-card__details-header">
+              <h3>User Profile</h3>
+              <Link to="/address">
+                <button className="addresses_btn">Manage Addresses</button>
+              </Link>
+            </div>
+            <div className="user-profile-card__details-main">
+              <p>
+                Name: {user.firstName} {user.lastName}
+              </p>
+              <p>Email: {user.email} </p>
+            </div>
           </div>
           <button className="logout-btn" onClick={logoutHandler}>
             Logout
