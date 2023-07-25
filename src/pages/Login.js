@@ -5,8 +5,8 @@ import { useDataContext } from "../context/dataContext";
 import { loginUser } from "../services/authServices";
 
 const testUserConfig = {
-  email: "harsh.mohite009@gmail.com",
-  password: "harsh123",
+  email: "adarshbalika@gmail.com",
+  password: "adarshbalika123",
 };
 
 const LoginPage = () => {
