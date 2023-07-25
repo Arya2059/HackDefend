@@ -25,8 +25,10 @@ const HomePage = () => {
         <section className="home-container">
           <div className="home-container__info">
             <div className="info-header">
-              <p>Welcome to HackDefend.</p>
-              <h1>One stop for all your Cybersecurity Learnings.</h1>
+              <h1 className="info-header__greeting">Welcome to HackDefend.</h1>
+              <p className="info-header__title">
+              One stop for all your Cybersecurity Learnings.
+              </p>
               <p>
                 Discover a world of digital fortification with our cybersecurity
                 course website. Gain the knowledge and skills to defend against
@@ -40,11 +42,11 @@ const HomePage = () => {
                 future of secure possibilities.
               </p>
             </div>
-            <button className="shop-btn">
-              <Link to="/products">Shop Now</Link>
-            </button>
+            <Link to="/products">
+              <button className="shop-btn">Shop Now</button>
+            </Link>
           </div>
-          <div className="course-img">
+          <div className="logo-img">
             <img src={logo} alt="" />
           </div>
         </section>
