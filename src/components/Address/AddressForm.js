@@ -1,6 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-const AddressForm = ({ setFormDisplay, onFormSubmit }) => {
+const AddressForm = ({
+  setFormDisplay,
+  onFormSubmit,
+  onFormEdit,
+  setIsEditing,
+  editingForm,
+  editingAddress,
+}) => {
   const [newAddress, setNewAddress] = useState({
     name: "",
     phone: "",
@@ -10,103 +17,109 @@ const AddressForm = ({ setFormDisplay, onFormSubmit }) => {
     addressText: "",
   });
 
-  const usernameChangeHandler = (e) => {
-    setNewAddress({
-      ...newAddress,
-      name: e.target.value,
-    });
-  };
+  useEffect(() => {
+    if (editingAddress) {
+      setNewAddress(editingAddress);
+    }
+  }, [editingAddress]);
 
-  const phoneChangeHandler = (e) => {
-    setNewAddress({
-      ...newAddress,
-      phone: e.target.value,
-    });
-  };
-
-  const addressTextChangeHandler = (e) => {
-    setNewAddress({
-      ...newAddress,
-      addressText: e.target.value,
-    });
-  };
-
-  const cityChangeHandler = (e) => {
-    setNewAddress({
-      ...newAddress,
-      city: e.target.value,
-    });
-  };
-
-  const stateChangeHandler = (e) => {
-    setNewAddress({
-      ...newAddress,
-      state: e.target.value,
-    });
-  };
-
-  const pinChangeHandler = (e) => {
-    setNewAddress({
-      ...newAddress,
-      pin: e.target.value,
-    });
+  const inputHandler = (e, inputName) => {
+    setNewAddress((prev) => ({
+      ...prev,
+      [inputName]: e.target.value,
+    }));
   };
 
   const addressFormSubmitHandler = (e) => {
     e.preventDefault();
-    onFormSubmit(newAddress);
-    setFormDisplay(false);
+
+    if (editingForm) {
+      onFormEdit(newAddress);
+      setIsEditing(false);
+    } else {
+      onFormSubmit(newAddress);
+      setFormDisplay(false);
+    }
   };
 
   return (
-    <div className="address-form">
-      <p>Add new address</p>
-      <form onSubmit={addressFormSubmitHandler}>
+    <div className="address-form-container">
+      <h4>{editingForm ? "Edit Address" : "Add New Address"}</h4>
+      <form onSubmit={addressFormSubmitHandler} className="address-form">
         <div>
-          <label htmlFor="username">Name: </label>
           <input
             type="text"
             id="username"
-            onChange={usernameChangeHandler}
+            value={newAddress.name}
+            placeholder="Enter Name"
+            onChange={(e) => inputHandler(e, "name")}
             required
           />
         </div>
         <div>
-          <label htmlFor="addressText">Address: </label>
           <input
             type="text"
             id="addressText"
-            onChange={addressTextChangeHandler}
+            placeholder="Enter Address"
+            value={newAddress.addressText}
+            onChange={(e) => inputHandler(e, "addressText")}
             required
           />
         </div>
         <div>
-          <label htmlFor="city">City: </label>
-          <input type="text" id="city" onChange={cityChangeHandler} required />
+          <input
+            type="text"
+            id="city"
+            value={newAddress.city}
+            placeholder="Enter City"
+            onChange={(e) => inputHandler(e, "city")}
+            required
+          />
         </div>
         <div>
-          <label htmlFor="state">State: </label>
           <input
             type="text"
             id="state"
-            onChange={stateChangeHandler}
+            value={newAddress.state}
+            placeholder="Enter State"
+            onChange={(e) => inputHandler(e, "state")}
             required
           />
         </div>
         <div>
-          <label htmlFor="pin">Pincode: </label>
-          <input type="text" id="pin" onChange={pinChangeHandler} required />
+          <input
+            type="text"
+            id="pin"
+            value={newAddress.pin}
+            placeholder="Enter Pincode"
+            onChange={(e) => inputHandler(e, "pin")}
+            required
+          />
         </div>
         <div>
-          <label htmlFor="phone">Phone: </label>
           <input
             type="text"
             id="phone"
-            onChange={phoneChangeHandler}
+            value={newAddress.phone}
+            placeholder="Enter Phone Number"
+            onChange={(e) => inputHandler(e, "phone")}
             required
           />
         </div>
-        <button>Save Address</button>
+        <div className="address-form-btn-group">
+          <button>SAVE</button>
+
+          {!editingForm && (
+            <button type="button" onClick={() => setFormDisplay(false)}>
+              CANCEL
+            </button>
+          )}
+          {editingForm && (
+            <button type="button" onClick={() => setIsEditing(false)}>
+              CANCEL
+            </button>
+          )}
+        </div>
       </form>
     </div>
   );

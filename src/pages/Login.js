@@ -5,8 +5,8 @@ import { useDataContext } from "../context/dataContext";
 import { loginUser } from "../services/authServices";
 
 const testUserConfig = {
-  email: "arshah2059@protonmail.com",
-  password: "arshah2059"
+  email: "harsh.mohite009@gmail.com",
+  password: "harsh123",
 };
 
 const LoginPage = () => {
@@ -17,7 +17,7 @@ const LoginPage = () => {
 
   const [userConfig, setUserConfig] = useState({
     email: "",
-    password: ""
+    password: "",
   });
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const LoginPage = () => {
   const inputHandler = (e, inputName) => {
     setUserConfig((prev) => ({
       ...prev,
-      [inputName]: e.target.value
+      [inputName]: e.target.value,
     }));
   };
 
@@ -38,7 +38,7 @@ const LoginPage = () => {
     loginUser(setLoader, setToken, setUser, location, navigate, userConfig);
     setUserConfig({
       email: "",
-      password: ""
+      password: "",
     });
   };
 

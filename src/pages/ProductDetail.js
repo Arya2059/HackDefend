@@ -5,12 +5,12 @@ import { useDataContext } from "../context/dataContext";
 import { addToCart } from "../services/cartServices";
 import {
   addToWishlist,
-  removeFromWishlist
+  removeFromWishlist,
 } from "../services/wishlistServices";
 import {
   isProductInCart,
   isProductInWishlist,
-  getDiscountPercent
+  getDiscountPercent,
 } from "../utils/productUtils";
 import { getProduct } from "../services/productDetailService";
 
@@ -71,7 +71,7 @@ const ProductDetailPage = () => {
     originalPrice,
     rating,
     pages,
-    delivery
+    delivery,
   } = product;
   const discount = getDiscountPercent(originalPrice, price);
   return (
@@ -104,8 +104,13 @@ const ProductDetailPage = () => {
             <div className="product-detail__info-price">
               <div className="product-detail__info-price-main">
                 <p className="product-detail__info-price__final">₹{price}</p>
+                <p className="product-detail__info-price__original">
+                  ₹{originalPrice}
+                </p>
               </div>
-              <p className="product-detail__info-price__discount"></p>
+              <p className="product-detail__info-price__discount">
+                {discount.toFixed()}% OFF
+              </p>
             </div>
             <hr />
             <div className="product-detail__info-main">

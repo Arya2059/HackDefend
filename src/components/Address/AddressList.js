@@ -1,12 +1,19 @@
 import React, { useState } from "react";
 import { v4 as uuid } from "uuid";
-import AddressForm from "./AddressForm";
 import { useDataContext } from "../../context/dataContext";
-import { TYPE } from "../../utils/constants";
+import { TOAST_CONFIG, TYPE } from "../../utils/constants";
+import { toast } from "react-toastify";
+import AddressForm from "./AddressForm";
+import AddressCard from "./AddressCard";
 
-const AddressList = () => {
-  const [addressSelected, setAddressSelected] = useState(null);
+const AddressList = ({
+  isAddressPage,
+  addressSelected,
+  setAddressSelected,
+}) => {
   const [formDisplay, setFormDisplay] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+  const [editingAddress, setEditingAddress] = useState(null);
   const { addresses, dataDispatch } = useDataContext();
 
   const addressSelectHandler = (e) => {
@@ -18,39 +25,48 @@ const AddressList = () => {
       type: TYPE.ADD_ADDRESS,
       payload: { ...address, id: uuid() },
     });
+    toast.success("New Address Added", TOAST_CONFIG);
+  };
+
+  const addressDeleteHandler = (addressId) => {
+    dataDispatch({ type: TYPE.DELETE_ADDRESS, payload: addressId });
+    toast.error("Deleted Address", TOAST_CONFIG);
+  };
+
+  const addressEditHandler = (address) => {
+    dataDispatch({ type: TYPE.EDIT_ADDRESS, payload: address });
+    toast.success("Updated Address", TOAST_CONFIG);
   };
 
   return (
     <div className="checkout-container__address">
-      <h3>{addresses.length > 0 && "Choose a delivery Address"}</h3>
-      {addresses.map((address) => {
-        const { id, name, phone, city, state, pin, addressText } = address;
-        return (
-          <div className="address-input-container" key={id}>
-            <input
-              type="radio"
-              id={id}
-              value={id}
-              checked={addressSelected?.id === id}
-              onChange={addressSelectHandler}
+      {addresses.length > 0 && !isAddressPage && (
+        <h3>Choose a delivery Address</h3>
+      )}
+      {!isEditing &&
+        addresses.map((address) => {
+          return (
+            <AddressCard
+              key={address.id}
+              address={address}
+              isAddressPage={isAddressPage}
+              addressSelected={addressSelected}
+              addressSelectHandler={addressSelectHandler}
+              setEditingAddress={setEditingAddress}
+              setIsEditing={setIsEditing}
+              addressDeleteHandler={addressDeleteHandler}
             />
-            <label htmlFor={id}>
-              <div className="address-details">
-                <h4>{name}</h4>
-                <p>{addressText}</p>
-                <p>
-                  {city}-{pin}
-                </p>
-                <p>{state}</p>
-                <p>
-                  <b>Phone:</b> {phone}
-                </p>
-              </div>
-            </label>
-          </div>
-        );
-      })}
-      {!formDisplay && (
+          );
+        })}
+      {isEditing && (
+        <AddressForm
+          onFormEdit={addressEditHandler}
+          setIsEditing={setIsEditing}
+          editingAddress={editingAddress}
+          editingForm
+        />
+      )}
+      {!formDisplay && !isEditing && (
         <div
           className="checkout-container__new-address"
           onClick={() => setFormDisplay(true)}

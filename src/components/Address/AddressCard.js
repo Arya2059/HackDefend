@@ -7,7 +7,7 @@ const AddressCard = ({
   addressSelectHandler,
   addressDeleteHandler,
   setEditingAddress,
-  setIsEditing
+  setIsEditing,
 }) => {
   const { id, name, phone, city, state, pin, addressText } = address;
   return (
