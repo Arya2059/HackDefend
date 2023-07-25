@@ -14,8 +14,8 @@ export const dataInitialState = {
       state: "Gujarat",
       pin: "380110",
       addressText: "15, Khaman House, Lal darwaja, Ahmedabad"
-    }
-  ]
+    },
+  ],
 };
 
 export const dataReducer = (state, action) => {
@@ -23,79 +23,79 @@ export const dataReducer = (state, action) => {
     case TYPE.LOAD_CATEGORIES:
       return {
         ...state,
-        categories: [...action.payload]
+        categories: [...action.payload],
       };
 
     case TYPE.LOAD_PRODUCTS:
       return {
         ...state,
-        products: [...action.payload]
+        products: [...action.payload],
       };
 
     case TYPE.LOAD_CART:
       return {
         ...state,
-        cart: [...action.payload]
+        cart: [...action.payload],
       };
 
     case TYPE.LOAD_WISHLIST:
       return {
         ...state,
-        wishlist: [...action.payload]
+        wishlist: [...action.payload],
       };
 
     case TYPE.CLEAR_CART:
       return {
         ...state,
-        cart: []
+        cart: [],
       };
 
     case TYPE.CLEAR_WISHLIST:
       return {
         ...state,
-        wishlist: []
+        wishlist: [],
       };
 
     case TYPE.ADD_TO_CART:
       return {
         ...state,
-        cart: [...action.payload]
+        cart: [...action.payload],
       };
 
     case TYPE.REMOVE_FROM_CART:
       return {
         ...state,
-        cart: [...action.payload]
+        cart: [...action.payload],
       };
 
     case TYPE.UPDATE_QTY_IN_CART:
       return {
         ...state,
-        cart: [...action.payload]
+        cart: [...action.payload],
       };
 
     case TYPE.ADD_TO_WISHLIST:
       return {
         ...state,
-        wishlist: [...action.payload]
+        wishlist: [...action.payload],
       };
 
     case TYPE.REMOVE_FROM_WISHLIST:
       return {
         ...state,
-        wishlist: [...action.payload]
+        wishlist: [...action.payload],
       };
 
     case TYPE.ADD_ADDRESS:
       return {
         ...state,
-        addresses: [...state.addresses, action.payload]
+        addresses: [...state.addresses, action.payload],
       };
 
     case TYPE.DELETE_ADDRESS:
       return {
         ...state,
-        addresses: state.addresses.filter(({ id }) => id !== action.payload)
+        addresses: state.addresses.filter(({ id }) => id !== action.payload),
       };
 
     case TYPE.EDIT_ADDRESS:
@@ -103,7 +103,7 @@ export const dataReducer = (state, action) => {
         ...state,
         addresses: state.addresses.map((item) =>
           item.id === action.payload.id ? action.payload : item
-        )
+        ),
       };
 
     default:
