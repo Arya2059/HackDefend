@@ -3,7 +3,7 @@ import {
   useContext,
   useEffect,
   useReducer,
-  useState
+  useState,
 } from "react";
 import { dataInitialState, dataReducer } from "../reducer/DataReducer";
 import { useAuthContext } from "./authContext";
@@ -20,7 +20,7 @@ const DataContext = createContext({
   drawer: "",
   dataDispatch: () => {},
   setLoader: () => {},
-  setDrawer: () => {}
+  setDrawer: () => {},
 });
 
 const DataProvider = ({ children }) => {
@@ -56,7 +56,7 @@ const DataProvider = ({ children }) => {
         loader,
         setLoader,
         drawer,
-        setDrawer
+        setDrawer,
       }}
     >
       {children}
