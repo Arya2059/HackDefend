@@ -8,7 +8,7 @@ import { TOAST_CONFIG } from "../../utils/constants";
 import { TYPE } from "../../utils/constants";
 import { useFilterContext } from "../../context/filterContext";
 import { removeFromCart } from "../../services/cartServices";
-import { removeFromWishlist } from "../../services/wishlistServices";
+// import { removeFromWishlist } from "../../services/wishlistServices";
 
 const CheckoutDetails = ({ addressSelected }) => {
   const { user, token } = useAuthContext();
@@ -113,10 +113,10 @@ const CheckoutDetails = ({ addressSelected }) => {
         prefill: {
           name: `${user?.firstName} ${user?.lastName}`,
           email: user?.email,
-          contact: "9696009211"
+          contact: "7958785135"
         },
         theme: {
-          color: "#5644b0"
+          color: "#FFFFE0"
         }
       };
       const paymentObject = new window.Razorpay(options);
@@ -152,7 +152,7 @@ const CheckoutDetails = ({ addressSelected }) => {
           </div>
           <div className="flex-row">
             <p>Discount</p>
-            <p>-20%</p>
+            <p>-10%</p>
           </div>
           <div className="flex-row font-bold">
             <p>Total Amount</p>
