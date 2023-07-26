@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Handlee&family=Montserrat:wght@400;700&family=Roboto&display=swap");
 :root {
-  --primary-color: #5644b0;
-  --accent-color: #ff6f61;
-  --secondary-color: white;
-  --text-color: white;
-  --btn-hover: #424242;
-  --btn-disable: #424242;
+  --primary-color: #3e4642;
+  --accent-color: #1a942b;
+  --secondary-color: rgba(47, 46, 51, 0.918);
+  --text-color: rgb(49, 250, 76);
+  --btn-hover: #769777;
+  --btn-disable: #dbc8c8;
 }
 
 * {
@@ -137,14 +137,14 @@ a {
   transform: translate(-50%, -50%);
 }
 
-.books-img {
-  height: 25rem;
+.book-img {
+  height: 300px;
+  width: 300px;
 }
 
-.books-img > img {
+.book-img img {
   width: 100%;
   height: 100%;
-  mix-blend-mode: multiply;
 }
 
 main.home {
@@ -172,6 +172,8 @@ main.home {
 .info-header {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
   gap: 2rem;
 }
 
@@ -186,6 +188,7 @@ main.home {
 }
 
 .shop-btn {
+  margin: 15px 0px;
   padding: 10px 20px;
   background-color: var(--accent-color);
   color: white;

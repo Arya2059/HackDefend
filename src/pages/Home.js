@@ -1,3 +1,4 @@
+
 import React from "react";
 import Footer from "../components/RootLayout/Footer";
 import logo from "../images/logo4.png";
@@ -29,12 +30,24 @@ const HomePage = () => {
               <p className="info-header__title">
               One stop for all your Cybersecurity Learnings.
               </p>
+              <p>
+                Discover a world of digital fortification with our cybersecurity
+                course website. Gain the knowledge and skills to defend against
+                cyber threats, protect sensitive data, and safeguard vital
+                information. From beginner-friendly fundamentals to advanced
+                techniques, our comprehensive courses empower you to navigate
+                the ever-evolving landscape of cybersecurity with confidence.
+                Join our community of aspiring professionals, learn from
+                industry experts, and embark on a transformative journey to
+                become a cybersecurity guardian. Enroll today and unlock a
+                future of secure possibilities.
+              </p>
             </div>
             <Link to="/products">
               <button className="shop-btn">Shop Now</button>
             </Link>
           </div>
-          <div className="logo-img">
+          <div className="book-img">
             <img src={logo} alt="" />
           </div>
         </section>

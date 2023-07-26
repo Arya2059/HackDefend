@@ -102,7 +102,7 @@ const CheckoutDetails = ({ addressSelected }) => {
         key: "rzp_test_b8vVacW3snWKQB",
         amount: discountedPrice * 100,
         currency: "INR",
-        name: "Kitaab",
+        name: "HackDefend",
         description: "Thank you for shopping with us",
         handler: function (response) {
           navigate("/order");
